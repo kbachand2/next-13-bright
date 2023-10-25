@@ -1,19 +1,9 @@
 import React from 'react';
 import { Code } from 'bright';
 
+import Revealable from '../components/Revealable';
+
 function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
 
   return (
     <main>
@@ -27,26 +17,15 @@ function Home() {
         automatically determines the data type
         based on the value you assign.
       </p>
-
-      {isFirstSnippetShown ? (
+      <Revealable>
         <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
+            className="code-snippet"
+            theme="dracula"
+            lang="py"
+          >
           {FIRST_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Revealable>
 
       <h2>
         Control Flow: Conditionals and Loops
@@ -57,7 +36,7 @@ function Home() {
         while loops.
       </p>
 
-      {isSecondSnippetShown ? (
+      <Revealable>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -65,17 +44,7 @@ function Home() {
         >
           {SECOND_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Revealable>
 
       <h2>Functions and Basic Data Structures</h2>
 
@@ -86,7 +55,7 @@ function Home() {
         lists and dictionaries.
       </p>
 
-      {isThirdSnippetShown ? (
+      <Revealable>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -94,17 +63,8 @@ function Home() {
         >
           {THIRD_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Revealable>
+
     </main>
   );
 }
